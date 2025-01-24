@@ -15,6 +15,7 @@
 - name: Clean previous runs of k3s-init # noqa command-instead-of-module
   # The systemd module does not support "reset-failed", so we need to resort to command.
   ansible.builtin.command: systemctl reset-failed k3s-init
+  become: true
   failed_when: false
   changed_when: false
 
